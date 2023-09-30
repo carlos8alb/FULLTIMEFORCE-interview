@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "dev": "node --watch src/index.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "@hono/node-server": "^1.2.0",
+    "hono": "^3.7.2"
+  },
+  "devDependencies": {
+    "standard": "^17.1.0"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  }
+}
