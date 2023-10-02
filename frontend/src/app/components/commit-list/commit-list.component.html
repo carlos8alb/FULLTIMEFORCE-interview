@@ -3,6 +3,7 @@
     Commits
   </h3>
   <hr>
+  <app-spiner *ngIf="groupedCommitsSorted.size === 0" class="flex justify-center items-center m-5"></app-spiner>
   <div *ngFor="let object of groupedCommitsSorted | keyvalue: returnZero">
     <div class="my-2 border-l-4 px-2 py-2">
       <h3 class="text-sm font-medium">Commits on {{ object.key | date }}</h3>
@@ -11,5 +12,5 @@
       </article>
     </div>
   </div>
+  <app-list-footer></app-list-footer>
 </section>
-<app-list-footer></app-list-footer>
