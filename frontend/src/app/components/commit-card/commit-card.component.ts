@@ -17,6 +17,5 @@ export class CommitCardComponent implements OnInit {
 
   ngOnInit(): void {
     initFlowbite();
-    console.log(this.commit);
   }
 }
