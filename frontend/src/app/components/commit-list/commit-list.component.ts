@@ -1,5 +1,6 @@
-import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
+import { Commit } from 'src/app/models/models';
 import { GithubService } from 'src/app/services/github.service';
 import { CommitCardComponent } from '../commit-card/commit-card.component';
 
@@ -12,9 +13,11 @@ import { CommitCardComponent } from '../commit-card/commit-card.component';
 })
 export class CommitListComponent implements OnInit {
   private gitHubService = inject(GithubService);
-  data: any = [];
+  commits: Commit[] = [];
 
-  ngOnInit() {
-    this.gitHubService.getCommits().subscribe((resp) => (this.data = resp));
+  ngOnInit(): void {
+    this.gitHubService.getCommits().subscribe((commits) => {
+      this.commits = commits;
+    });
   }
 }

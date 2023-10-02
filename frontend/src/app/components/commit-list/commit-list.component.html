@@ -1,2 +1,9 @@
-<app-commit-card></app-commit-card>
-<pre>{{ data | json }}</pre>
+<section class="max-w-screen-lg mx-auto mb-8">
+  <h3 class="mb-3 ml-3 text-2xl font-bold text-neutral-700 dark:text-neutral-300">
+    Commits
+  </h3>
+  <hr>
+  <article *ngFor="let commit of commits" class="relative mt-3">
+    <app-commit-card [commit]="commit"></app-commit-card>
+  </article>
+</section>
