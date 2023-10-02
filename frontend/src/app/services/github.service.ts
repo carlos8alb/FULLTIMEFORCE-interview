@@ -1,15 +1,16 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Commit, Repository } from '../models/models';
+import { config } from '../config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GithubService {
   private http = inject(HttpClient);
-  private URL_REPO = 'http://localhost:3000/api/repository';
-  private URL_COMMITS = 'http://localhost:3000/api/repository/commits';
+  private URL_REPO = config.URL_REPO;
+  private URL_COMMITS = config.URL_COMMITS;
 
   constructor() {}
 

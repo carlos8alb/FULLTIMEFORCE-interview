@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Commit } from 'src/app/models/models';
 import { DateAgoPipe } from 'src/app/pipes/date-ago.pipe';
 import { initFlowbite } from 'flowbite';
+import { config } from 'src/app/config';
 
 @Component({
   selector: 'app-commit-card',
@@ -13,7 +14,7 @@ import { initFlowbite } from 'flowbite';
 })
 export class CommitCardComponent implements OnInit {
   @Input() commit!: Commit;
-  URL_TREE = 'https://github.com/carlos8alb/FULLTIMEFORCE-interview/tree/'
+  URL_TREE = config.URL_TREE;
 
   ngOnInit(): void {
     initFlowbite();
