@@ -1,9 +1,23 @@
-export const getData = async () => {
-  const resp = await fetch(
-    'https://api.github.com/repos/carlos8alb/FULLTIMEFORCE-interview/commits',
-    { headers: { GITHUB_TOKEN: 'ghp_hPQ6LKhrLoO6vEW4i52VAHB62I1Ap12zyXN' } }
-  )
+const URL_REPOSITORY =
+  'https://api.github.com/repos/carlos8alb/FULLTIMEFORCE-interview'
+const URL_COMMITS =
+  'https://api.github.com/repos/carlos8alb/FULLTIMEFORCE-interview/commits'
+const GITHUB_TOKEN = 'ghp_hPQ6LKhrLoO6vEW4i52VAHB62I1Ap12zyXN'
 
-  const data = await resp.json()
-  return data
+export const getRepository = async () => {
+  const resp = await fetch(URL_REPOSITORY, {
+    headers: { GITHUB_TOKEN }
+  })
+
+  const repository = await resp.json()
+  return repository
+}
+
+export const getCommits = async () => {
+  const resp = await fetch(URL_COMMITS, {
+    headers: { GITHUB_TOKEN }
+  })
+
+  const commits = await resp.json()
+  return commits
 }

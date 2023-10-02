@@ -1,19 +1,25 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
-import { getData } from './api/index.js'
+import { getRepository, getCommits } from './api/index.js'
 import { cors } from 'hono/cors'
 
 const app = new Hono()
 app.use('/api/*', cors())
 
 app.get('/api', async (c) => {
-  const data = await getData()
-  return c.json(data)
+  return c.json({
+    repository: '/api/repository',
+    commits: '/api/repository/commits'
+  })
 })
 
-app.get('/api/commits', async (c) => {
-  const data = await getData()
-  const commits = data.map((item) => item.commit)
+app.get('/api/repository', async (c) => {
+  const repository = await getRepository()
+  return c.json(repository)
+})
+
+app.get('/api/repository/commits', async (c) => {
+  const commits = await getCommits()
   return c.json(commits)
 })
 
