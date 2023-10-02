@@ -3,11 +3,12 @@ import { Component, OnInit, inject } from '@angular/core';
 import { Commit } from 'src/app/models/models';
 import { GithubService } from 'src/app/services/github.service';
 import { CommitCardComponent } from '../commit-card/commit-card.component';
+import { ListFooterComponent } from '../list-footer/list-footer.component';
 
 @Component({
   selector: 'app-commit-list',
   standalone: true,
-  imports: [CommonModule, CommitCardComponent],
+  imports: [CommonModule, CommitCardComponent, ListFooterComponent],
   templateUrl: './commit-list.component.html',
   styleUrls: ['./commit-list.component.css'],
 })
