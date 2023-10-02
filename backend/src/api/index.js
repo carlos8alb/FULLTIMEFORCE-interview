@@ -1,8 +1,9 @@
-const URL_REPOSITORY =
-  'https://api.github.com/repos/carlos8alb/FULLTIMEFORCE-interview'
-const URL_COMMITS =
-  'https://api.github.com/repos/carlos8alb/FULLTIMEFORCE-interview/commits'
-const GITHUB_TOKEN = 'ghp_hPQ6LKhrLoO6vEW4i52VAHB62I1Ap12zyXN'
+import dotenv from 'dotenv'
+dotenv.config()
+
+const URL_REPOSITORY = process.env.URL_REPOSITORY
+const URL_COMMITS = process.env.URL_COMMITS
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN
 
 export const getRepository = async () => {
   const resp = await fetch(URL_REPOSITORY, {

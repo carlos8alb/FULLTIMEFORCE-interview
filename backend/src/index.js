@@ -2,6 +2,8 @@ import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import { getRepository, getCommits } from './api/index.js'
 import { cors } from 'hono/cors'
+import dotenv from 'dotenv'
+dotenv.config()
 
 const app = new Hono()
 app.use('/api/*', cors())
@@ -25,6 +27,8 @@ app.get('/api/repository/commits', async (c) => {
 
 app.notFound((c) => c.json({ message: 'Not Found', ok: false }, 404))
 
-serve(app).listen(3000, () => {
-  console.log('Listening on http://localhost:3000')
+const PORT = process.env.PORT || 3000
+
+serve(app).listen(PORT, () => {
+  console.log(`Listening on http://localhost:${PORT}`)
 })
